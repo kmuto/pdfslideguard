@@ -1,0 +1,7 @@
+/build/
+/dist/
+*~
+#*#
+#.bak
+*.egg-info
+*.pdf

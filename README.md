@@ -20,7 +20,15 @@ This ensures **display compatibility** while preserving text **searchability and
   * **Flexible Page Size:** To prevent degradation from re-scaling on slide sites, you can choose to either **restore the original size (`-k`)** or **retain the scaled-up size (default)** for the output.
   * **Japanese Language Support:** Supports Japanese fonts for embedding transparent text using ReportLab.
 
-## Installation
+## Using Docker
+
+Docker images are available on Docker Hub and ghcr.io.
+
+```bash
+docker pull kenshimuto/pdfslideguard:latest
+```
+
+## Installing without Docker
 
 ### 1. Install Dependencies
 
@@ -41,12 +49,24 @@ For embedding transparent text, a Japanese TrueType/OpenType font file is requir
 
 If you wish to use a different font, specify its path using the `-f` option (see Usage below).
 
+承知いたしました。ご提示の日本語のMarkdownセクションを英語に翻訳します。
+
+-----
+
+### 3. Package Installation
+
+Download the latest `pdfslideguard` package from the [Releases](https://www.google.com/search?q=https://github.com/kmuto/pdfslideguard/releases) page and install it using the `pip3` command.
+
+```bash
+pip3 install pdfslideguard-X.X.X.tar.gz
+```
+
 ## Usage
 
 ### Basic Syntax
 
 ```bash
-python3 pdfslideguard [OPTIONS] [INPUT_PDF] [OUTPUT_PDF]
+pdfslideguard [OPTIONS] [INPUT_PDF] [OUTPUT_PDF]
 ```
 
 ### Options
@@ -59,26 +79,35 @@ python3 pdfslideguard [OPTIONS] [INPUT_PDF] [OUTPUT_PDF]
 | **`-q`, `--quiet`** | (Flag) | `False` | Suppresses INFO messages, showing only WARNING/ERROR logs. |
 | **`-k`, `--keep_size`** | (Flag) | `False` | If set, the final PDF size will be **restored to the original dimensions**. If omitted (default), the **scaled-up page dimensions will be retained**. |
 
+If you use the Docker image, you must mount the input and output directories as shown below to allow the container to process the files.
+
+```bash
+docker run --rm \
+    -v ".:/work" \
+    kenshimuto/pdfslideguard [OPTIONS] \
+    /work/INPUT_PDF /work/OUTPUT_PDF
+```
+
 ### Examples
 
 #### 1. Running with Default Settings (Retaining Scaled Size)
 
 ```bash
-python3 pdfslideguard presentation_input.pdf final_output.pdf
+pdfslideguard presentation_input.pdf final_output.pdf
 # Result: A PDF with retained scaled dimensions and JPEG quality 85 is generated.
 ```
 
 #### 2. Reducing File Size and Restoring Original Size
 
 ```bash
-python3 pdfslideguard presentation_input.pdf final_output.pdf -z 1.8 -j 70 -k
+pdfslideguard presentation_input.pdf final_output.pdf -z 1.8 -j 70 -k
 # Result: Compressed with a zoom factor of 1.8, JPEG quality 70, and the page size is restored to original dimensions.
 ```
 
 #### 3. Specifying an Alternate Font Path
 
 ```bash
-python3 pdfslideguard input.pdf output.pdf -f /home/user/my_fonts/NotoSansJP-Regular.otf
+pdfslideguard input.pdf output.pdf -f /home/user/my_fonts/NotoSansJP-Regular.otf
 ```
 
 ## License
