@@ -7,6 +7,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends python3-fitz python3-pymupdf python3-reportlab python3-pypdf fonts-ipaexfont-gothic \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-COPY ./pdfslideguard /usr/bin/pdfslideguard
+COPY ./pdfslideguard/pdfslideguard.py /usr/bin/pdfslideguard
 RUN chmod a+x /usr/bin/pdfslideguard
-CMD ["/usr/bin/pdfslideguard"]
+ENTRYPOINT ["/usr/bin/pdfslideguard"]
+CMD ["--help"]
