@@ -26,6 +26,8 @@ Docker images are available on Docker Hub and ghcr.io.
 
 ```bash
 docker pull kenshimuto/pdfslideguard:latest
+  or
+docker pull ghcr.io/kmuto/pdfslideguard:latest
 ```
 
 ## Installing without Docker

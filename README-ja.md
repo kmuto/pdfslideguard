@@ -25,6 +25,8 @@ Docker Hubおよびghcr.ioにイメージを用意しています。
 
 ```
 docker pull kenshimuto/pdfslideguard:latest
+または
+docker pull ghcr.io/kmuto/pdfslideguard:latest
 ```
 
 ## Dockerを使わずインストールする場合
