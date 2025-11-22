@@ -32,7 +32,8 @@ Dockerイメージを提供しています。
 pip3 install -r requirements.txt
 ```
 
-### 2. 日本語フォントの準備透明テキストの埋め込みには、システムまたは指定パスに日本語TrueType/OpenTypeフォントが必要です。デフォルトではIPAex Gothic（ipaexg.ttf）を探します。
+### 2. 日本語フォントの準備
+透明テキストの埋め込みには、システムまたは指定パスに日本語TrueType/OpenTypeフォントが必要です。デフォルトではIPAex Gothic（ipaexg.ttf）を探します。
 
 ```bash
 /usr/share/fonts/opentype/ipaexfont-gothic/ipaexg.ttf
