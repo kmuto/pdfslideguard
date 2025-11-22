@@ -49,10 +49,6 @@ For embedding transparent text, a Japanese TrueType/OpenType font file is requir
 
 If you wish to use a different font, specify its path using the `-f` option (see Usage below).
 
-承知いたしました。ご提示の日本語のMarkdownセクションを英語に翻訳します。
-
------
-
 ### 3. Package Installation
 
 Download the latest `pdfslideguard` package from the [Releases](https://www.google.com/search?q=https://github.com/kmuto/pdfslideguard/releases) page and install it using the `pip3` command.
